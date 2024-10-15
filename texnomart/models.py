@@ -83,8 +83,7 @@ class Comment(BaseModel):
     file = models.FileField(upload_to='comments/%Y/%m/%d/', null=True, blank=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments')
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='comments')
-    rating = models.PositiveSmallIntegerField(choices=RatingChoices.choices, default=RatingChoices.ZERO.value,
-                                              null=True)
+    rating = models.PositiveSmallIntegerField(choices=RatingChoices.choices, default=RatingChoices.ZERO.value,null=True)
 
     def __str__(self):
         return self.message
@@ -110,6 +109,3 @@ class ProductAttribute(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, blank=True, related_name='attributes')
 
 
-from django.db import models
-
-# Create your models here.

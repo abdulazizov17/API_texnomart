@@ -3,9 +3,6 @@ from texnomart.models import Category, Product, Image,Comment,AttributeKey,Attri
 from django.db.models import Avg
 
 
-
-
-
 class CategorySerializer(serializers.ModelSerializer):
     full_image_url = serializers.SerializerMethodField()
     count = serializers.SerializerMethodField(method_name='groups_count')

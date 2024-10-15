@@ -14,3 +14,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             email=validated_data['email']
         )
         return user
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = '__all__'

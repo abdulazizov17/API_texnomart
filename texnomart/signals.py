@@ -1,8 +1,7 @@
-# signals.py
 import json
 from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
-from .models import Category, Product
+from texnomart.models import Category, Product
 from django.core.mail import send_mail
 from django.conf import settings
 import os
@@ -10,8 +9,8 @@ import os
 @receiver(post_save, sender=Category)
 def send_email_after_category_creation(sender, instance, created, **kwargs):
     if created:
-        subject = 'Yangi kategoriya yaratildi'
-        message = f"Yangi kategoriya: {instance.title} yaratildi."
+        subject = 'Yangi Category yaratildi'
+        message = f"Yangi Category: {instance.title} yaratildi."
         send_mail(subject, message, settings.EMAIL_HOST_USER, ['abdulazizovasilbek005@gmail.com'])  # Email yuboruvchi va qabul qiluvchilar ro'yxati
 
 @receiver(post_save, sender=Product)
@@ -20,6 +19,8 @@ def send_email_after_product_creation(sender, instance, created, **kwargs):
         subject = 'Yangi mahsulot yaratildi'
         message = f"Yangi mahsulot: {instance.name} yaratildi. Narxi: {instance.price}."
         send_mail(subject, message, settings.EMAIL_HOST_USER, ['abdulazizovasilbek005@gmail.com'])
+
+
 
 
 @receiver(pre_delete, sender=Product)

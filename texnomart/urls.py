@@ -5,9 +5,9 @@ from texnomart.views import category, product, comment, attribute
 
 
 urlpatterns = [
-    path('api/categories/', category.CategoryListApiView.as_view(), name='category-list'),
+    path('categories/', category.CategoryListApiView.as_view(), name='category-list'),
     path('category/<int:pk>/', category.CategoryDetailApiView.as_view(), name='category-detail'),
-    path('api/categories/<slug:category_slug>/', category.CategoryDetailApiView.as_view(), name='category-detail'),
+    path('categories/<slug:category_slug>/', category.CategoryDetailApiView.as_view(), name='category-detail'),
     path('products/', product.ProductListCreateAPIView.as_view(), name='product-list-create'),
     path('products/<int:pk>/', product.ProductDetailView.as_view(), name='product_detail'),
     path('product/', product.ProductCreateListView.as_view(), name='product-create'),
