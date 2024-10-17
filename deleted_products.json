@@ -5,5 +5,13 @@
         "price": 1223342535.0,
         "quantity": 1000,
         "slug": "iphone-11"
+    },
+    {
+        "id": 3,
+        "name": "iphone 14",
+        "description": "fnlsgjsdbfjgbcfxkj bkjxdfbndfbndfx",
+        "price": 32142353.0,
+        "quantity": 123,
+        "deleted_at": "2024-10-13 13:51:31.715418+00:00"
     }
 ]

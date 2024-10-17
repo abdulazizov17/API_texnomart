@@ -8,6 +8,9 @@ from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.core.cache import cache
+from rest_framework.generics import ListAPIView
+from user.serializers import UserSerializer
 
 
 class UserLoginApiView(APIView):
@@ -67,9 +70,6 @@ class RegisterApiView(APIView):
         }
         return Response(response, status=status.HTTP_201_CREATED)
 
-from django.core.cache import cache
-from rest_framework.generics import ListAPIView
-from user.serializers import UserSerializer
 
 class UserListView(ListAPIView):
     queryset = User.objects.all()

@@ -8,13 +8,13 @@ from texnomart.models import Category, Product, Image, Comment, AttributeKey, At
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('title','slug')
+    list_display = ('title', 'slug')
     prepopulated_fields = {'slug': ('title',)}
 
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name','slug')
+    list_display = ('name', 'slug')
     prepopulated_fields = {'slug': ('name',)}
     autocomplete_fields = ('users_like',)
 
